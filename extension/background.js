@@ -27,7 +27,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       return; // skip this reminder
     }
     chrome.notifications.create('', NOTI_OPTIONS, (id) => {
-      record('drink/pee');
+      record('補水魔法');
     });
   });
 });
