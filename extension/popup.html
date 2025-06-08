@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <title>Office Punchcard</title>
+  <title>🐶社畜健康集點卡🐶</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div id="punchcard">
-    <h1>Office Punchcard</h1>
+    <h1>🐶社畜健康集點卡🐶</h1>
     <div class="settings">
       <label>
-        Reminder every
-        <input id="frequency" type="number" min="1" value="60"> minutes
+        ⏰設定提醒頻率：
+        每<input id="frequency" type="number" min="1" value="60"> 分鐘 提醒我
       </label>
-      <button id="save">Save</button>
+      <button id="save">儲存設定</button>
     </div>
     <div class="schedule">
-      <h2>Skip Times</h2>
+      <h2>🛠️跳過以下時段：</h2>
       <div id="skip-list"></div>
       <input id="skip-start" type="time"> - <input id="skip-end" type="time">
-      <button id="add-skip">Add</button>
+      <button id="add-skip">新增</button>
     </div>
-    <h2>Today's Record</h2>
-    <ul id="record"></ul>
+    <h2>📋今日集點記錄📋</h2>
+    <div id="record"></div>
   </div>
   <script src="popup.js"></script>
 </body>
+
 </html>

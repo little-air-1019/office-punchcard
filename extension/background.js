@@ -1,8 +1,8 @@
 const NOTI_OPTIONS = {
   type: 'basic',
   iconUrl: 'icons/icon48.png',
-  title: 'Hydration Break',
-  message: 'Time to drink water or go pee!'
+  title: '補水時間🍻',
+  message: '去喝水💧或走走💃🏻吧',
 };
 
 chrome.runtime.onInstalled.addListener(initAlarm);

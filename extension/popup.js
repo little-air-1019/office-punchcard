@@ -86,3 +86,46 @@ chrome.runtime.onMessage.addListener((msg) => {
     });
   }
 });
+
+// 彈窗提醒功能
+function showReminder() {
+  if (window.Notification && Notification.permission === "granted") {
+    new Notification("該打卡囉！🐶");
+  } else if (window.Notification && Notification.permission !== "denied") {
+    Notification.requestPermission().then(permission => {
+      if (permission === "granted") {
+        new Notification("該打卡囉！🐶");
+      } else {
+        alert("該打卡囉！🐶");
+      }
+    });
+  } else {
+    alert("該打卡囉！🐶");
+  }
+}
+
+let reminderInterval = null;
+
+function startReminder() {
+  if (reminderInterval) clearInterval(reminderInterval);
+  const freq = parseInt(freqInput.value, 10) || 60;
+  reminderInterval = setInterval(showReminder, freq * 60 * 1000);
+}
+
+// 儲存設定時重啟提醒
+saveBtn.addEventListener('click', () => {
+  const frequency = parseInt(freqInput.value, 10);
+  chrome.storage.sync.set({frequency});
+  chrome.runtime.sendMessage({type: 'update'});
+  startReminder();
+});
+
+// 頁面載入時啟動提醒
+document.addEventListener('DOMContentLoaded', () => {
+  load();
+  // 啟動提醒
+  if (window.Notification && Notification.permission !== "granted") {
+    Notification.requestPermission();
+  }
+  startReminder();
+});
