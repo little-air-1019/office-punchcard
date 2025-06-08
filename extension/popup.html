@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Office Punchcard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="punchcard">
+    <h1>Office Punchcard</h1>
+    <div class="settings">
+      <label>
+        Reminder every
+        <input id="frequency" type="number" min="1" value="60"> minutes
+      </label>
+      <button id="save">Save</button>
+    </div>
+    <div class="schedule">
+      <h2>Skip Times</h2>
+      <div id="skip-list"></div>
+      <input id="skip-start" type="time"> - <input id="skip-end" type="time">
+      <button id="add-skip">Add</button>
+    </div>
+    <h2>Today's Record</h2>
+    <ul id="record"></ul>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
